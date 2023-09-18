@@ -45,5 +45,6 @@ function formClearAfterSubmit(event) {
     formData.email = formEl.elements.email.value;
     formData.message = formEl.elements.message.value;
     formEl.reset();
-    localStorage.removeItem("FORM_LOCAL_SRORAGE_KEY");
+    localStorage.clear("FORM_LOCAL_SRORAGE_KEY");
+    
 };
