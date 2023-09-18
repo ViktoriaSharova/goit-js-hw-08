@@ -1,7 +1,7 @@
 import throttle from 'lodash.throttle';
 
 const formData = {};
-const FORM_LOCAL_SROREGE_KEY = 'feedback-form-state';
+const FORM_LOCAL_SRORAGE_KEY = 'feedback-form-state';
 
 // Ініціалізація форми
 const formEl = document.querySelector('form');
@@ -27,7 +27,7 @@ function formDataInput(event) {
 formFillCheck();
 
 function formFillCheck() {
-    const dataInForm = localStorage.getItem(FORM_LOCAL_SROREGE_KEY);
+    const dataInForm = localStorage.getItem(FORM_LOCAL_SRORAGE_KEY);
     if (dataInForm) {
         const parceDataInForm = JSON.parse(dataInForm);
         for (const property in parceDataInForm) {
@@ -45,5 +45,5 @@ function formClearAfterSubmit(event) {
     formData.email = formEl.elements.email.value;
     formData.message = formEl.elements.message.value;
     formEl.reset();
-    localStorage.removeItem("FORM_LOCAL_SROREGE_KEY");
+    localStorage.removeItem("FORM_LOCAL_SRORAGE_KEY");
 };
