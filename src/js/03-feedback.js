@@ -1,7 +1,7 @@
 import throttle from 'lodash.throttle';
 
 const formData = {};
-const FORM_LOCAL_SRORAGE_KEY = 'feedback-form-state';
+const FORM_LOCAL_STORAGE_KEY = 'feedback-form-state';
 
 // Ініціалізація форми
 const formEl = document.querySelector('form');
@@ -27,7 +27,7 @@ function formDataInput(event) {
 formFillCheck();
 
 function formFillCheck() {
-    const dataInForm = localStorage.getItem(FORM_LOCAL_SRORAGE_KEY);
+    const dataInForm = localStorage.getItem(FORM_LOCAL_STORAGE_KEY);
     if (dataInForm) {
         const parceDataInForm = JSON.parse(dataInForm);
         for (const property in parceDataInForm) {
@@ -40,12 +40,14 @@ function formFillCheck() {
 };
 
 // Функція для очищення localStorage від введених даних після натискання Submit
+
 function formClearAfterSubmit(event) {
+    let formData = {};
     event.preventDefault();
     formData.email = formEl.elements.email.value;
     formData.message = formEl.elements.message.value;
     console.log(formData);
     formEl.reset();
-    localStorage.clear("FORM_LOCAL_SRORAGE_KEY");
+    localStorage.clear();
     
 };
